@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Contact from "./Contact";
 import Footer from "./Footer";
-import Menu from "./Menu";
-import Search from "./Search";
 
 export default function Layout(props) {
   const [showMenu, setShowMenu] = useState(true);
@@ -18,8 +16,7 @@ export default function Layout(props) {
       </div>
       <div id="sidebar" className={!showMenu ? "inactive" : ""}>
         <div className="inner">
-          <Search />
-          <Menu />
+          {props.right}
           <Contact />
           <Footer />
         </div>
