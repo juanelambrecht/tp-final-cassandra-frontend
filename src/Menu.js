@@ -4,7 +4,7 @@ export default function Menu() {
       <header className="major">
         <h2>Menu</h2>
       </header>
-      <ul>
+      {/*       <ul>
         <li>
           <a href="index.html">Homepage</a>
         </li>
@@ -12,7 +12,7 @@ export default function Menu() {
           <span className="opener">Navegar por Autor</span>
           <div id="_listactores"></div>
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 }

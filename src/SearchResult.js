@@ -1,30 +1,33 @@
-export default function SearchResult() {
+import { Link } from "react-router-dom";
+
+export default function SearchResult(props) {
   return (
-    <div class="table-wrapper">
+    <div className="table-wrapper">
       <table>
         <thead>
           <tr>
-            <th>Autor</th>
-            <th>Título</th>
-            <th>Resumen</th>
-            <th>Fecha</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Resume</th>
+            <th>Date</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>autor 1</td>
-            <td>titulo 1</td>
-            <td>resument 1</td>
-            <td>fecahhh</td>
-          </tr>
-          <tr>
-            <td>autor 1</td>
-            <td>titulo 1</td>
-            <td>resument 1</td>
-            <td>fecahhh</td>
-          </tr>
+          {props.posts.map((result, index) => (
+            <tr key={index}>
+              <td>{result.author}</td>
+              <td>{result.title}</td>
+              <td>{result.resume}</td>
+              <td>{result.date.$date}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
+      <ul className="actions">
+        <li>
+          <Link to="/">Back To Home Page</Link>
+        </li>
+      </ul>
     </div>
   );
 }

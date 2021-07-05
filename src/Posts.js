@@ -1,36 +1,48 @@
-export default function Posts() {
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+export default function Posts(props) {
+  const [posts, setPosts] = useState([]);
+  const { postId } = useParams();
+  const { name } = useParams();
+
+  useEffect(() => {
+    let uri = "posts/";
+    if (postId) uri += postId;
+    if (name) uri += "author/" + name;
+
+    fetch(props.apiUrl + uri)
+      .then((response) => response.json())
+      .then((response) => {
+        setPosts(response);
+      });
+  }, []);
+
   return (
-    <section>
-      <header className="main">
-        <h1>Titulo</h1>
-      </header>
-      <h3>Resumen</h3>
-      <div className="box">
-        <p>El resumen</p>
-      </div>
-      <p>El Texto</p>
-      <h4>Links Relacionados</h4>
-      <ul className="alt">
-        <li>a</li>
-        <li>b</li>
-      </ul>
-      <h4>Tags</h4>
-      <p>tags...</p>
-      <h4>Autores</h4>
-      <p>autores...</p>
-    </section>
+    <>
+      {posts.map((post) => (
+        <section key={post._id.$oid}>
+          <header className="main">
+            <h1>{post.title}</h1>
+          </header>
+          <h3>{post.resume}</h3>
+          <p>{post.text}</p>
+          <h4>Links Relacionados</h4>
+          <ul className="alt">
+            {post.relatedlinks.map((link, index) => (
+              <li key={index}>{link}</li>
+            ))}
+          </ul>
+          <h4>Tags</h4>
+          <ul>
+            {post.tags.map((tag, index) => (
+              <li key={index}>{tag}</li>
+            ))}
+          </ul>
+          <h4>Autor</h4>
+          <p>{post.author}</p>
+        </section>
+      ))}
+    </>
   );
 }
-
-/* articulos += '<section><header class="main">';
-articulos += '<h1>' + obj.titulo + '</h1></header><h3>Resumen</h3><div class="box">';
-articulos += '<p>' + obj.resumen + '</p></div>';
-articulos += '<p>' + obj.texto + '</p><h4>Links Relacionados</h4><ul class="alt">';
-$.each(obj['links-relacionados'], function(i2, link) {
-    articulos += '<li>' + link + '</li>';
-});
-articulos += '</ul><h4>Tags</h4>';
-articulos += '<p>' + obj.tags + '</p>';
-articulos += '<h4>Autores</h4>';
-articulos += '<p>' + obj.autor + '</p>';
-articulos += '</section>' */

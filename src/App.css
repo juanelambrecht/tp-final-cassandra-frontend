@@ -2496,10 +2496,6 @@ header.major > :last-child {
   padding: 0 0.75em 0.5em 0;
 }
 
-header.main > :last-child {
-  margin: 0 0 1em 0;
-}
-
 /* Form */
 
 form {
@@ -3694,7 +3690,7 @@ button:disabled,
 }
 
 #main > .inner > section {
-  padding: 6em 0 4em 0;
+  padding: 6em 0 0em 0;
   border-top: solid 2px rgba(210, 215, 217, 0.75);
 }
 
@@ -3708,7 +3704,7 @@ button:disabled,
   }
 
   #main > .inner > section {
-    padding: 5em 0 3em 0;
+    padding: 2em 0 0em 0;
   }
 }
 

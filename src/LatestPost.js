@@ -1,14 +1,34 @@
-export default function LatestPost() {
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+export default function LatestPost(props) {
+  const [latest, setLatest] = useState([]);
+
+  useEffect(() => {
+    fetch(props.apiUrl + "posts/latest")
+      .then((response) => response.json())
+      .then((response) => {
+        setLatest(response);
+      });
+  }, []);
+
   return (
     <section>
       <header className="major">
         <h2>Últimos Posts...</h2>
       </header>
       <div className="posts">
-        <article id="article1"></article>
-        <article id="article2"></article>
-        <article id="article3"></article>
-        <article id="article4"></article>
+        {latest.map((post) => (
+          <article key={post._id.$oid}>
+            <h3>{post.title}</h3>
+            <p>{post.resume}</p>
+            <ul className="actions">
+              <li>
+                <Link to={"posts/" + post._id.$oid}>Read post...</Link>
+              </li>
+            </ul>
+          </article>
+        ))}
       </div>
     </section>
   );

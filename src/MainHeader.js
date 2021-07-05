@@ -1,9 +1,9 @@
-export default function () {
+export default function MainHeader() {
   return (
     <header id="header">
-      <a href="index.html" className="logo">
+      <span className="logo">
         <strong>Blog</strong>
-      </a>
+      </span>
     </header>
   );
 }
