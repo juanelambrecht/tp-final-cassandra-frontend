@@ -15,7 +15,7 @@ export default function LatestPost(props) {
   return (
     <section>
       <header className="major">
-        <h2>Últimos Posts...</h2>
+        <h2>Latest Posts...</h2>
       </header>
       <div className="posts">
         {latest.map((post) => (

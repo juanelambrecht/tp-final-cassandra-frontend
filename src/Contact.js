@@ -4,11 +4,11 @@ export default function Contact() {
       <header className="major">
         <h2>Contact</h2>
       </header>
-      {/* <ul className="contact">
+      <ul className="contact">
         <li className="fa-envelope-o">
           <a href="#">enrique.molinari@gmail.com</a>
         </li>
-      </ul> */}
+      </ul>
     </section>
   );
 }

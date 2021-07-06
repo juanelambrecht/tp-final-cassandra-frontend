@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Posts(props) {
   const [posts, setPosts] = useState([]);
@@ -16,10 +17,10 @@ export default function Posts(props) {
       .then((response) => {
         setPosts(response);
       });
-  }, []);
+  }, [postId, name]);
 
   return (
-    <>
+    <span key={name}>
       {posts.map((post) => (
         <section key={post._id.$oid}>
           <header className="main">
@@ -43,6 +44,9 @@ export default function Posts(props) {
           <p>{post.author}</p>
         </section>
       ))}
-    </>
+      <p>
+        <Link to="/">Back to Home Page</Link>
+      </p>
+    </span>
   );
 }

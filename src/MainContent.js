@@ -1,24 +1,34 @@
+import { useEffect } from "react";
 import { useState } from "react";
+import { Route } from "react-router-dom";
 import LatestPost from "./LatestPost";
-import Page from "./Page";
+import PageLink from "./PageLink";
+import PageFullText from "./PageFullText";
 
 export default function MainContent(props) {
-  const [fullPageOnly, setFullPageOnly] = useState(false);
+  const [mainPage, setMainPage] = useState([]);
 
-  function handleFullPageOnly() {
-    setFullPageOnly((previous) => {
-      return !previous;
-    });
-  }
+  useEffect(() => {
+    fetch(props.apiUrl + "pages/" + props.pageId)
+      .then((response) => response.json())
+      .then((response) => {
+        setMainPage(response);
+      });
+  }, []);
 
   return (
     <>
-      <Page
-        apiUrl={props.apiUrl}
-        fullPageOnly={fullPageOnly}
-        handleFullPage={handleFullPageOnly}
-      />
-      {!fullPageOnly && <LatestPost apiUrl={props.apiUrl} />}
+      <section id="banner">
+        <Route exact path="/">
+          <PageLink page={mainPage} />
+        </Route>
+        <Route exact path="/page/full">
+          <PageFullText page={mainPage} />
+        </Route>
+      </section>
+      <Route exact path="/">
+        <LatestPost apiUrl={props.apiUrl} />
+      </Route>
     </>
   );
 }

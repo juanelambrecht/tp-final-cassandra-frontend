@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function PageLink(props) {
   return (
     <>
@@ -7,9 +9,9 @@ export default function PageLink(props) {
           <p>{page.text.substring(0, 53) + "..."}</p>
           <ul className="actions">
             <li>
-              <a className="button big" onClick={props.handleFullPage}>
+              <Link to="/page/full" className="button big">
                 Read more...
-              </a>
+              </Link>
             </li>
           </ul>
         </header>

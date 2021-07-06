@@ -9,7 +9,6 @@ export default function SearchResult(props) {
             <th>Author</th>
             <th>Title</th>
             <th>Resume</th>
-            <th>Date</th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +17,6 @@ export default function SearchResult(props) {
               <td>{result.author}</td>
               <td>{result.title}</td>
               <td>{result.resume}</td>
-              <td>{result.date.$date}</td>
             </tr>
           ))}
         </tbody>

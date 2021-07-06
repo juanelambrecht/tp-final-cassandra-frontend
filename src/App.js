@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
   const apiUrl = process.env.REACT_APP_API_URL;
+  const pageId = process.env.REACT_APP_MAIN_PAGE_ID;
   const [searchResults, setSearchResults] = useState([]);
 
   function handleSearch(results) {
@@ -24,8 +25,8 @@ export default function App() {
           <>
             <MainHeader />
             <Switch>
-              <Route exact path="/">
-                <MainContent apiUrl={apiUrl} />
+              <Route exact path={["/", "/page/full"]}>
+                <MainContent apiUrl={apiUrl} pageId={pageId} />
               </Route>
               <Route exact path="/posts/:postId">
                 <Posts apiUrl={apiUrl} />
@@ -42,7 +43,7 @@ export default function App() {
         right={
           <>
             <Search apiUrl={apiUrl} handleSearch={handleSearch} />
-            <Menu />
+            <Menu apiUrl={apiUrl} />
           </>
         }
       ></Layout>

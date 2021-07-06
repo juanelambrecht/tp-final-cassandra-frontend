@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function PageFullText(props) {
   return (
     <>
@@ -11,9 +13,9 @@ export default function PageFullText(props) {
           <p>By {page.author}</p>
           <ul className="actions">
             <li>
-              <a className="button big" onClick={props.handleFullPage}>
-                Main Page
-              </a>
+              <Link to="/" className="button big">
+                Home Page
+              </Link>
             </li>
           </ul>
         </section>
