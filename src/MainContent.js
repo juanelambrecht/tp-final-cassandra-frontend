@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Route } from "react-router-dom";
 import LatestPost from "./LatestPost";
-import PageLink from "./PageLink";
+import PageSummary from "./PageSummary";
 import PageFullText from "./PageFullText";
 
 export default function MainContent(props) {
@@ -20,7 +20,7 @@ export default function MainContent(props) {
     <>
       <section id="banner">
         <Route exact path="/">
-          <PageLink page={mainPage} />
+          <PageSummary page={mainPage} />
         </Route>
         <Route exact path="/page/full">
           <PageFullText page={mainPage} />

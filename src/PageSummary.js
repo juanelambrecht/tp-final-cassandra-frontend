@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function PageLink(props) {
+export default function PageSummary(props) {
   return (
     <>
       {props.page.map((page) => (
