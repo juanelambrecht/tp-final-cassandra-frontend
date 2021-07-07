@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import MainHeader from "./MainHeader";
 import MainContent from "./MainContent";
 import SearchResult from "./SearchResult";
-import Search from "./Search";
+import SearchBox from "./SearchBox";
 import Menu from "./Menu";
 import Posts from "./Posts";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -42,7 +42,7 @@ export default function App() {
         }
         right={
           <>
-            <Search apiUrl={apiUrl} handleSearch={handleSearch} />
+            <SearchBox apiUrl={apiUrl} handleSearch={handleSearch} />
             <Menu apiUrl={apiUrl} />
           </>
         }
