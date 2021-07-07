@@ -9,6 +9,7 @@ export default function SearchResult(props) {
             <th>Author</th>
             <th>Title</th>
             <th>Resume</th>
+            <th>Post</th>
           </tr>
         </thead>
         <tbody>
@@ -17,6 +18,9 @@ export default function SearchResult(props) {
               <td>{result.author}</td>
               <td>{result.title}</td>
               <td>{result.resume}</td>
+              <td>
+                <Link to={"/posts/" + result._id.$oid}>Read more...</Link>
+              </td>
             </tr>
           ))}
         </tbody>

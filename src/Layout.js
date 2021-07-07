@@ -12,14 +12,10 @@ export default function Layout(props) {
   return (
     <div id="wrapper">
       <div id="main">
-        <div className="inner">{props.left}</div>
+        <div className="inner">{props.mainPane}</div>
       </div>
       <div id="sidebar" className={!showMenu ? "inactive" : ""}>
-        <div className="inner">
-          {props.right}
-          <Contact />
-          <Footer />
-        </div>
+        {props.leftPane}
         <a href="#sidebar" className="toggle" onClick={handleLeftMenu}>
           Toggle
         </a>

@@ -4,8 +4,7 @@ import Layout from "./Layout";
 import MainHeader from "./MainHeader";
 import MainContent from "./MainContent";
 import SearchResult from "./SearchResult";
-import SearchBox from "./SearchBox";
-import Menu from "./Menu";
+import LeftPanel from "./LeftPanel";
 import Posts from "./Posts";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -21,7 +20,8 @@ export default function App() {
   return (
     <Router>
       <Layout
-        left={
+        leftPane={<LeftPanel apiUrl={apiUrl} handleSearch={handleSearch} />}
+        mainPane={
           <>
             <MainHeader />
             <Switch>
@@ -38,12 +38,6 @@ export default function App() {
                 <SearchResult posts={searchResults} />
               </Route>
             </Switch>
-          </>
-        }
-        right={
-          <>
-            <SearchBox apiUrl={apiUrl} handleSearch={handleSearch} />
-            <Menu apiUrl={apiUrl} />
           </>
         }
       ></Layout>
