@@ -28,7 +28,7 @@ export default function Posts(props) {
           </header>
           <h3>{post.resume}</h3>
           <p>{post.text}</p>
-          <h4>Links Relacionados</h4>
+          <h4>Related Links</h4>
           <ul className="alt">
             {post.relatedlinks.map((link, index) => (
               <li key={index}>{link}</li>
@@ -40,7 +40,7 @@ export default function Posts(props) {
               <li key={index}>{tag}</li>
             ))}
           </ul>
-          <h4>Autor</h4>
+          <h4>Author</h4>
           <p>{post.author}</p>
         </section>
       ))}

@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Contact from "./Contact";
-import Footer from "./Footer";
 
 export default function Layout(props) {
   const [showMenu, setShowMenu] = useState(true);
