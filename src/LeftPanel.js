@@ -6,7 +6,7 @@ import License from "./License";
 export default function LeftPanel(props) {
   return (
     <div className="inner">
-      <SearchBox apiUrl={props.apiUrl} handleSearch={props.handleSearch} />
+      <SearchBox apiUrl={props.apiUrl} />
       <Menu apiUrl={props.apiUrl} />
       <Contact />
       <License />

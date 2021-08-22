@@ -11,8 +11,7 @@ export default function SearchBox(props) {
     fetch(props.apiUrl + "search/" + textSearch)
       .then((response) => response.json())
       .then((response) => {
-        history.push("/search/result");
-        props.handleSearch(response);
+        history.push("/search/result", response);
       });
   }
 

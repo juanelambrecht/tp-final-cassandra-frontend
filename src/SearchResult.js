@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-export default function SearchResult(props) {
+export default function SearchResult() {
+  const location = useLocation();
+
   return (
     <div className="table-wrapper">
       <table>
@@ -13,7 +16,7 @@ export default function SearchResult(props) {
           </tr>
         </thead>
         <tbody>
-          {props.posts.map((result, index) => (
+          {location.state.map((result, index) => (
             <tr key={index}>
               <td>{result.author}</td>
               <td>{result.title}</td>
