@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LatestPost from "./LatestPost";
 import PageSummary from "./PageSummary";
 import PageFullText from "./PageFullText";
@@ -19,16 +19,14 @@ export default function MainContent(props) {
   return (
     <>
       <section id="banner">
-        <Route exact path="/">
-          <PageSummary page={mainPage} />
-        </Route>
-        <Route exact path="/page/full">
-          <PageFullText page={mainPage} />
-        </Route>
+        <Routes>
+          <Route index element={<PageSummary page={mainPage} />} />
+          <Route path="/page/full" element={<PageFullText page={mainPage} />} />
+        </Routes>
       </section>
-      <Route exact path="/">
-        <LatestPost apiUrl={props.apiUrl} />
-      </Route>
+      <Routes>
+        <Route index element={<LatestPost apiUrl={props.apiUrl} />} />
+      </Routes>
     </>
   );
 }

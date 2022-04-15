@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBox(props) {
   const [textSearch, setTextSearch] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -11,7 +11,7 @@ export default function SearchBox(props) {
     fetch(props.apiUrl + "search/" + textSearch)
       .then((response) => response.json())
       .then((response) => {
-        history.push("/search/result", response);
+        navigate("/search/result", { state: response });
       });
   }
 
