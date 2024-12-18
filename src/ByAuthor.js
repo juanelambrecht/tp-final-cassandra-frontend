@@ -5,7 +5,8 @@ export default function ByAuthor(props) {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    fetch(props.apiUrl + "byauthor")
+    //fetch(props.apiUrl + "byauthor")
+    fetch("http://localhost:1234/byauthor")
       .then((response) => response.json())
       .then((response) => {
         setResults(response);

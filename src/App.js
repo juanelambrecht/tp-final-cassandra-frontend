@@ -8,7 +8,7 @@ import Posts from "./Posts";
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = "http://localhost:1234/";
   const pageId = process.env.REACT_APP_MAIN_PAGE_ID;
 
   return (

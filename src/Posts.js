@@ -12,13 +12,13 @@ export default function Posts(props) {
     if (postId) uri += postId;
     if (name) uri += "author/" + name;
 
-    fetch(props.apiUrl + uri)
+    fetch("http://localhost:1234/" + uri)
       .then((response) => response.json())
       .then((response) => {
         setPosts(response);
       });
   }, [postId, name]);
-
+  console.log(posts);
   return (
     <span key={name}>
       {posts.map((post) => (

@@ -5,7 +5,7 @@ export default function LatestPost(props) {
   const [latest, setLatest] = useState([]);
 
   useEffect(() => {
-    fetch(props.apiUrl + "posts/latest")
+    fetch("http://localhost:1234/posts/latest")
       .then((response) => response.json())
       .then((response) => {
         setLatest(response);

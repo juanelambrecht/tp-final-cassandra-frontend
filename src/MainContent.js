@@ -9,7 +9,7 @@ export default function MainContent(props) {
   const [mainPage, setMainPage] = useState([]);
 
   useEffect(() => {
-    fetch(props.apiUrl + "pages/" + props.pageId)
+    fetch("http://localhost:1234/pages/" + props.pageId)
       .then((response) => response.json())
       .then((response) => {
         setMainPage(response);
